@@ -8,24 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		073C49AF1FA4DB7F0092F9A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C49AE1FA4DB7F0092F9A3 /* AppDelegate.swift */; };
-		073C49B11FA4DB7F0092F9A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C49B01FA4DB7F0092F9A3 /* ViewController.swift */; };
+		073C49B11FA4DB7F0092F9A3 /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C49B01FA4DB7F0092F9A3 /* ChoiceViewController.swift */; };
 		073C49B41FA4DB7F0092F9A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073C49B21FA4DB7F0092F9A3 /* Main.storyboard */; };
 		073C49B61FA4DB7F0092F9A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073C49B51FA4DB7F0092F9A3 /* Assets.xcassets */; };
 		073C49B91FA4DB7F0092F9A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073C49B71FA4DB7F0092F9A3 /* LaunchScreen.storyboard */; };
 		073C49C11FA4DCC70092F9A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 073C49C01FA4DCC70092F9A3 /* GoogleService-Info.plist */; };
+		073C75581FA5112C000D29E5 /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C75571FA5112C000D29E5 /* XMLParser.swift */; };
+		073C755A1FA520B4000D29E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C75591FA520B4000D29E5 /* Constants.swift */; };
+		07DD26251FA4E5A60083048D /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD26241FA4E5A60083048D /* FloatingView.swift */; };
+		07DD26271FA4F2150083048D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD26261FA4F2150083048D /* LoginViewController.swift */; };
+		07DD263E1FA504CB0083048D /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD263D1FA504CB0083048D /* QRScannerController.swift */; };
 		BF539DCBE8F390F2F159C579 /* Pods_Health_Cube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF310B9C3215A111C0CBA227 /* Pods_Health_Cube.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		073C49AB1FA4DB7F0092F9A3 /* Health Cube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health Cube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		073C49AE1FA4DB7F0092F9A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		073C49B01FA4DB7F0092F9A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		073C49B01FA4DB7F0092F9A3 /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
 		073C49B31FA4DB7F0092F9A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		073C49B51FA4DB7F0092F9A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		073C49B81FA4DB7F0092F9A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		073C49BA1FA4DB7F0092F9A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		073C49C01FA4DCC70092F9A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		073C49C21FA4DEE90092F9A3 /* Health Cube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Health Cube.entitlements"; sourceTree = "<group>"; };
+		073C75571FA5112C000D29E5 /* XMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
+		073C75591FA520B4000D29E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		07DD26241FA4E5A60083048D /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
+		07DD26261FA4F2150083048D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		07DD263D1FA504CB0083048D /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 		2C67F95CF6A2F1F274679E55 /* Pods-Health Cube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Health Cube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Health Cube/Pods-Health Cube.debug.xcconfig"; sourceTree = "<group>"; };
 		D78FE4C1DB51E21B5DB3FED0 /* Pods-Health Cube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Health Cube.release.xcconfig"; path = "Pods/Target Support Files/Pods-Health Cube/Pods-Health Cube.release.xcconfig"; sourceTree = "<group>"; };
 		FF310B9C3215A111C0CBA227 /* Pods_Health_Cube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Health_Cube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,12 +76,17 @@
 			children = (
 				073C49C21FA4DEE90092F9A3 /* Health Cube.entitlements */,
 				073C49AE1FA4DB7F0092F9A3 /* AppDelegate.swift */,
-				073C49B01FA4DB7F0092F9A3 /* ViewController.swift */,
+				073C49B01FA4DB7F0092F9A3 /* ChoiceViewController.swift */,
 				073C49B21FA4DB7F0092F9A3 /* Main.storyboard */,
 				073C49C01FA4DCC70092F9A3 /* GoogleService-Info.plist */,
 				073C49B51FA4DB7F0092F9A3 /* Assets.xcassets */,
 				073C49B71FA4DB7F0092F9A3 /* LaunchScreen.storyboard */,
 				073C49BA1FA4DB7F0092F9A3 /* Info.plist */,
+				07DD26241FA4E5A60083048D /* FloatingView.swift */,
+				07DD26261FA4F2150083048D /* LoginViewController.swift */,
+				07DD263D1FA504CB0083048D /* QRScannerController.swift */,
+				073C75571FA5112C000D29E5 /* XMLParser.swift */,
+				073C75591FA520B4000D29E5 /* Constants.swift */,
 			);
 			path = "Health Cube";
 			sourceTree = "<group>";
@@ -233,7 +248,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				073C49B11FA4DB7F0092F9A3 /* ViewController.swift in Sources */,
+				07DD263E1FA504CB0083048D /* QRScannerController.swift in Sources */,
+				07DD26271FA4F2150083048D /* LoginViewController.swift in Sources */,
+				073C75581FA5112C000D29E5 /* XMLParser.swift in Sources */,
+				073C49B11FA4DB7F0092F9A3 /* ChoiceViewController.swift in Sources */,
+				073C755A1FA520B4000D29E5 /* Constants.swift in Sources */,
+				07DD26251FA4E5A60083048D /* FloatingView.swift in Sources */,
 				073C49AF1FA4DB7F0092F9A3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
