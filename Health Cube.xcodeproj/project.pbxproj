@@ -12,6 +12,8 @@
 		073C49B41FA4DB7F0092F9A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073C49B21FA4DB7F0092F9A3 /* Main.storyboard */; };
 		073C49B61FA4DB7F0092F9A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073C49B51FA4DB7F0092F9A3 /* Assets.xcassets */; };
 		073C49B91FA4DB7F0092F9A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073C49B71FA4DB7F0092F9A3 /* LaunchScreen.storyboard */; };
+		073C49C11FA4DCC70092F9A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 073C49C01FA4DCC70092F9A3 /* GoogleService-Info.plist */; };
+		BF539DCBE8F390F2F159C579 /* Pods_Health_Cube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF310B9C3215A111C0CBA227 /* Pods_Health_Cube.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,11 @@
 		073C49B51FA4DB7F0092F9A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		073C49B81FA4DB7F0092F9A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		073C49BA1FA4DB7F0092F9A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		073C49C01FA4DCC70092F9A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		073C49C21FA4DEE90092F9A3 /* Health Cube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Health Cube.entitlements"; sourceTree = "<group>"; };
+		2C67F95CF6A2F1F274679E55 /* Pods-Health Cube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Health Cube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Health Cube/Pods-Health Cube.debug.xcconfig"; sourceTree = "<group>"; };
+		D78FE4C1DB51E21B5DB3FED0 /* Pods-Health Cube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Health Cube.release.xcconfig"; path = "Pods/Target Support Files/Pods-Health Cube/Pods-Health Cube.release.xcconfig"; sourceTree = "<group>"; };
+		FF310B9C3215A111C0CBA227 /* Pods_Health_Cube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Health_Cube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF539DCBE8F390F2F159C579 /* Pods_Health_Cube.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,8 @@
 			children = (
 				073C49AD1FA4DB7F0092F9A3 /* Health Cube */,
 				073C49AC1FA4DB7F0092F9A3 /* Products */,
+				1F76201176E30C817C176E0B /* Pods */,
+				D6167F97DB3CA592B4F5BF1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +64,33 @@
 		073C49AD1FA4DB7F0092F9A3 /* Health Cube */ = {
 			isa = PBXGroup;
 			children = (
+				073C49C21FA4DEE90092F9A3 /* Health Cube.entitlements */,
 				073C49AE1FA4DB7F0092F9A3 /* AppDelegate.swift */,
 				073C49B01FA4DB7F0092F9A3 /* ViewController.swift */,
 				073C49B21FA4DB7F0092F9A3 /* Main.storyboard */,
+				073C49C01FA4DCC70092F9A3 /* GoogleService-Info.plist */,
 				073C49B51FA4DB7F0092F9A3 /* Assets.xcassets */,
 				073C49B71FA4DB7F0092F9A3 /* LaunchScreen.storyboard */,
 				073C49BA1FA4DB7F0092F9A3 /* Info.plist */,
 			);
 			path = "Health Cube";
+			sourceTree = "<group>";
+		};
+		1F76201176E30C817C176E0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C67F95CF6A2F1F274679E55 /* Pods-Health Cube.debug.xcconfig */,
+				D78FE4C1DB51E21B5DB3FED0 /* Pods-Health Cube.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D6167F97DB3CA592B4F5BF1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF310B9C3215A111C0CBA227 /* Pods_Health_Cube.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +100,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 073C49BD1FA4DB7F0092F9A3 /* Build configuration list for PBXNativeTarget "Health Cube" */;
 			buildPhases = (
+				2E59FD31F4876EC919EE9719 /* [CP] Check Pods Manifest.lock */,
 				073C49A71FA4DB7F0092F9A3 /* Sources */,
 				073C49A81FA4DB7F0092F9A3 /* Frameworks */,
 				073C49A91FA4DB7F0092F9A3 /* Resources */,
+				4C9013585AE23FEA1148CA8C /* [CP] Embed Pods Frameworks */,
+				C7E3DA368DA18EDC2B899717 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -97,6 +129,14 @@
 					073C49AA1FA4DB7F0092F9A3 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -125,11 +165,68 @@
 			files = (
 				073C49B91FA4DB7F0092F9A3 /* LaunchScreen.storyboard in Resources */,
 				073C49B61FA4DB7F0092F9A3 /* Assets.xcassets in Resources */,
+				073C49C11FA4DCC70092F9A3 /* GoogleService-Info.plist in Resources */,
 				073C49B41FA4DB7F0092F9A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E59FD31F4876EC919EE9719 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Health Cube-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C9013585AE23FEA1148CA8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Health Cube/Pods-Health Cube-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Health Cube/Pods-Health Cube-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7E3DA368DA18EDC2B899717 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Health Cube/Pods-Health Cube-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		073C49A71FA4DB7F0092F9A3 /* Sources */ = {
@@ -272,8 +369,10 @@
 		};
 		073C49BE1FA4DB7F0092F9A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C67F95CF6A2F1F274679E55 /* Pods-Health Cube.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Health Cube/Health Cube.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6B89WP5H2R;
 				INFOPLIST_FILE = "Health Cube/Info.plist";
@@ -287,8 +386,10 @@
 		};
 		073C49BF1FA4DB7F0092F9A3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D78FE4C1DB51E21B5DB3FED0 /* Pods-Health Cube.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Health Cube/Health Cube.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6B89WP5H2R;
 				INFOPLIST_FILE = "Health Cube/Info.plist";
