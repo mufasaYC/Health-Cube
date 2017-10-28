@@ -36,7 +36,6 @@ class ChoiceViewController: UIViewController {
 				print("\n\nInvalid entry\n\n")
 			}
 		}
-		
 	}
 
 

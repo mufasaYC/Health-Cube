@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Display-Medium.otf">
+            <string>SFUIDisplay-Medium</string>
+        </array>
+        <array key="SF-UI-Display-Thin.otf">
+            <string>SFUIDisplay-Thin</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomView" customModule="Health_Cube" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundImage" destination="tYN-fM-uCU" id="2nJ-Qt-XPd"/>
+                <outlet property="dateLabel" destination="Oap-ZS-cPK" id="x1c-xU-hoT"/>
+                <outlet property="titleLabel" destination="MRJ-oo-RfY" id="Kky-rk-PwY"/>
+                <outlet property="view" destination="JUJ-kl-Zh8" id="iaf-o4-Teb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="CustomView" customModule="Health_Cube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUJ-kl-Zh8">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Birth" translatesAutoresizingMaskIntoConstraints="NO" id="tYN-fM-uCU">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kU-Hg-op7">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pop &amp; Jump" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRJ-oo-RfY">
+                    <rect key="frame" x="12" y="593" width="351" height="62"/>
+                    <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="53"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pop &amp; Jump" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oap-ZS-cPK">
+                    <rect key="frame" x="12" y="560.5" width="351" height="24.5"/>
+                    <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="21"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Oap-ZS-cPK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="2En-aE-Q5e"/>
+                <constraint firstAttribute="trailing" secondItem="tYN-fM-uCU" secondAttribute="trailing" id="6GS-Wp-3JF"/>
+                <constraint firstItem="tYN-fM-uCU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8Kh-5C-8V9"/>
+                <constraint firstAttribute="trailing" secondItem="MRJ-oo-RfY" secondAttribute="trailing" constant="12" id="Cat-1f-gow"/>
+                <constraint firstAttribute="bottom" secondItem="tYN-fM-uCU" secondAttribute="bottom" id="Jkw-wt-IrS"/>
+                <constraint firstItem="4kU-Hg-op7" firstAttribute="centerX" secondItem="tYN-fM-uCU" secondAttribute="centerX" id="LXh-EW-AOz"/>
+                <constraint firstItem="4kU-Hg-op7" firstAttribute="centerY" secondItem="tYN-fM-uCU" secondAttribute="centerY" id="Uss-Rf-d0z"/>
+                <constraint firstItem="MRJ-oo-RfY" firstAttribute="top" secondItem="Oap-ZS-cPK" secondAttribute="bottom" constant="8" id="X4d-75-6dB"/>
+                <constraint firstItem="4kU-Hg-op7" firstAttribute="width" secondItem="tYN-fM-uCU" secondAttribute="width" id="Xe6-Hq-XNx"/>
+                <constraint firstItem="JUJ-kl-Zh8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d20-S2-3ja"/>
+                <constraint firstItem="JUJ-kl-Zh8" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="fj0-rG-CBN"/>
+                <constraint firstItem="MRJ-oo-RfY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="gIf-ri-Mlk"/>
+                <constraint firstItem="JUJ-kl-Zh8" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="jTL-7n-Fo2"/>
+                <constraint firstAttribute="trailing" secondItem="Oap-ZS-cPK" secondAttribute="trailing" constant="12" id="phP-Oc-H6v"/>
+                <constraint firstItem="tYN-fM-uCU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tv8-Sd-aJp"/>
+                <constraint firstItem="4kU-Hg-op7" firstAttribute="height" secondItem="tYN-fM-uCU" secondAttribute="height" id="xIF-ps-hkh"/>
+                <constraint firstItem="JUJ-kl-Zh8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yHn-vN-cSV"/>
+                <constraint firstAttribute="bottom" secondItem="MRJ-oo-RfY" secondAttribute="bottom" constant="12" id="zRT-2v-Y1W"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="Birth" width="2017" height="2246"/>
+    </resources>
+</document>
