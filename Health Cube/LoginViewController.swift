@@ -36,18 +36,20 @@ class LoginViewController: UIViewController {
 		passwordTextField.isUserInteractionEnabled = false
 		loginButton.isUserInteractionEnabled = false
 		scanButton.isUserInteractionEnabled = false
-		scanButton.isEnabled = false
+		scanButton.isHidden = true
 		
 		if user.rawValue == Type.doctor.rawValue {
 			passwordTextField.isUserInteractionEnabled = true
 			textField.placeholder = "Doctor ID"
 		} else if user.rawValue == Type.patient.rawValue {
 			textField.placeholder = "Aadhaar UID"
-			scanButton.isEnabled = true
+			scanButton.isHidden = false
 			scanButton.isUserInteractionEnabled = true
 		} else if user.rawValue == Type.asha.rawValue {
+			passwordTextField.isUserInteractionEnabled = true
 			textField.placeholder = "Unique ID"
 		} else if user.rawValue == Type.GovNGO.rawValue {
+			passwordTextField.isUserInteractionEnabled = true
 			textField.placeholder = "Asha ID"
 		}
 		
@@ -77,7 +79,11 @@ class LoginViewController: UIViewController {
 				
 				for i in snapshot.children.allObjects as! [DataSnapshot] {
 					print(i.key, "\t", i.value as? String ?? "")
-					self.userFetched.updateValue(i.value as? String ?? "", forKey: i.key)
+					if i.key == "vaccines" {
+						self.userFetched.updateValue(i.value as? [String: Bool] ?? "", forKey: i.key)
+					} else {
+						self.userFetched.updateValue(i.value as? String ?? "", forKey: i.key)
+					}
 				}
 				
 				if let _ = self.userFetched["password"] as? String {
@@ -114,6 +120,7 @@ class LoginViewController: UIViewController {
 			Database.database().reference().child("doctor").child(textField.text!).observeSingleEvent(of: .value, with: { snapshot in
 				
 				if snapshot.exists() {
+					
 					for i in (snapshot.children.allObjects) as! [DataSnapshot] {
 						if i.key == "password" {
 							if i.value as? String ?? "" == self.passwordTextField.text! {
@@ -124,11 +131,17 @@ class LoginViewController: UIViewController {
 						}
 					}
 				}
-				
 			})
 		}
 		
 		else if user.rawValue == Type.patient.rawValue {
+			
+			if let v = userFetched["vaccines"] as? [String: Bool] {
+				status = v
+			}
+			
+			
+			
 			if let p = userFetched["password"] as? String {
 				if passwordTextField.text == p {
 					performSegue(withIdentifier: "success", sender: self)
@@ -144,6 +157,7 @@ class LoginViewController: UIViewController {
 			Database.database().reference().child("asha").child(textField.text!).observeSingleEvent(of: .value, with: { snapshot in
 				
 				if snapshot.exists() {
+					
 					for i in (snapshot.children.allObjects) as! [DataSnapshot] {
 						if i.key == "password" {
 							if i.value as? String ?? "" == self.passwordTextField.text! {
@@ -161,7 +175,10 @@ class LoginViewController: UIViewController {
 		else if user.rawValue == Type.GovNGO.rawValue {
 			Database.database().reference().child("govNGO").child(textField.text!).observeSingleEvent(of: .value, with: { snapshot in
 				
+				
+				
 				if snapshot.exists() {
+					
 					for i in (snapshot.children.allObjects) as! [DataSnapshot] {
 						if i.key == "password" {
 							if i.value as? String ?? "" == self.passwordTextField.text! {
@@ -192,6 +209,12 @@ class LoginViewController: UIViewController {
 				loginButton.isUserInteractionEnabled = false
 				passwordTextField.isUserInteractionEnabled = false
 			}
+		} else {
+			if textField.text?.characters.count == 12 {
+				loginButton.isUserInteractionEnabled = true
+			} else {
+				loginButton.isUserInteractionEnabled = false
+			}
 		}
 		
 	}
@@ -216,5 +239,4 @@ class LoginViewController: UIViewController {
 		self.present(alert, animated: true, completion: nil)
 	}
 
-	
 }

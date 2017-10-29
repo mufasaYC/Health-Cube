@@ -55,8 +55,9 @@ class DoctorsHomeController: UIViewController {
 		//dismiss(animated: true, completion: nil)
 		if let x = UserDefaults.standard.value(forKey: "patient") as? [String: Any] {
 			textField.text = x["uid"] as? String ?? ""
-			goButton.isUserInteractionEnabled = false
+			goButton.isUserInteractionEnabled = true
 			UserDefaults.standard.set(x["uid"], forKey: "uid")
+			goBtn(UIButton())
 			performSegue(withIdentifier: "show", sender: self)
 		}
 	}
@@ -69,30 +70,4 @@ class DoctorsHomeController: UIViewController {
 		}
 	}
 	
-//	func fetchPatient(uid: String) {
-//		guard let x = UserDefaults.standard.value(forKey: "patient") as? [String: Any] else { return }
-//		Database.database().reference().child("patient").child(x["uid"] as? String ?? "").observeSingleEvent(of: .value, with: { snapshot in
-//
-//			if snapshot.exists() {
-//
-//				for i in snapshot.children.allObjects as! [DataSnapshot] {
-//
-//				}
-//
-//			}
-//
-//		})
-//	}
-
-	
-	/*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

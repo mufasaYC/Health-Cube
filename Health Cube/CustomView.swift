@@ -10,6 +10,8 @@ import UIKit
 
 @IBDesignable class CustomView: UIView {
 
+	@IBOutlet weak var timeLabel: UILabel!
+	@IBOutlet weak var vaccinatedView: DesignableView!
 	@IBOutlet weak var dateLabel: UILabel!
 	@IBOutlet weak var backgroundImage: UIImageView!
 	@IBOutlet weak var titleLabel: UILabel!

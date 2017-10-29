@@ -41,7 +41,9 @@ class DoctorVaccineController: UIViewController, UITableViewDataSource, UITableV
 				
 				
 				if i == y.last {
-					self.tableView.reloadData()
+					if let _ = self.tableView { self.tableView.reloadData() }
+					else { }
+					
 				}
 			}
 		})

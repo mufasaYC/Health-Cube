@@ -8,9 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="SF-UI-Display-Medium.otf">
-            <string>SFUIDisplay-Medium</string>
-        </array>
         <array key="SF-UI-Display-Thin.otf">
             <string>SFUIDisplay-Thin</string>
         </array>
@@ -20,7 +17,9 @@
             <connections>
                 <outlet property="backgroundImage" destination="tYN-fM-uCU" id="2nJ-Qt-XPd"/>
                 <outlet property="dateLabel" destination="Oap-ZS-cPK" id="x1c-xU-hoT"/>
+                <outlet property="timeLabel" destination="cdR-YW-bgS" id="xOa-Ih-qUF"/>
                 <outlet property="titleLabel" destination="MRJ-oo-RfY" id="Kky-rk-PwY"/>
+                <outlet property="vaccinatedView" destination="5P6-d0-ZFK" id="6Pj-ma-wZl"/>
                 <outlet property="view" destination="JUJ-kl-Zh8" id="iaf-o4-Teb"/>
             </connections>
         </placeholder>
@@ -38,7 +37,42 @@
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kU-Hg-op7">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5P6-d0-ZFK" customClass="DesignableView" customModule="Health_Cube" customModuleProvider="target">
+                            <rect key="frame" x="21" y="21" width="290" height="72"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vaccinated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcj-h6-9JD">
+                                    <rect key="frame" x="20" y="6" width="250.5" height="60"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                    <color key="textColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="Rcj-h6-9JD" firstAttribute="centerX" secondItem="5P6-d0-ZFK" secondAttribute="centerX" id="1Ex-no-cXB"/>
+                                <constraint firstAttribute="width" constant="290" id="Fmo-bI-3mw"/>
+                                <constraint firstItem="Rcj-h6-9JD" firstAttribute="centerY" secondItem="5P6-d0-ZFK" secondAttribute="centerY" id="tvr-hJ-mxj"/>
+                                <constraint firstAttribute="height" constant="72" id="xWT-T4-ILL"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="36"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="7"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="5P6-d0-ZFK" firstAttribute="leading" secondItem="4kU-Hg-op7" secondAttribute="leading" constant="21" id="JQt-26-r7S"/>
+                        <constraint firstItem="5P6-d0-ZFK" firstAttribute="top" secondItem="4kU-Hg-op7" secondAttribute="top" constant="21" id="fqF-G4-Dvq"/>
+                    </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pop &amp; Jump" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRJ-oo-RfY">
                     <rect key="frame" x="12" y="593" width="351" height="62"/>
@@ -47,9 +81,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pop &amp; Jump" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oap-ZS-cPK">
-                    <rect key="frame" x="12" y="560.5" width="351" height="24.5"/>
-                    <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="21"/>
+                    <rect key="frame" x="12" y="559.5" width="351" height="25.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdR-YW-bgS">
+                    <rect key="frame" x="12" y="513" width="355" height="25.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -58,8 +98,10 @@
                 <constraint firstItem="Oap-ZS-cPK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="2En-aE-Q5e"/>
                 <constraint firstAttribute="trailing" secondItem="tYN-fM-uCU" secondAttribute="trailing" id="6GS-Wp-3JF"/>
                 <constraint firstItem="tYN-fM-uCU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8Kh-5C-8V9"/>
+                <constraint firstItem="Oap-ZS-cPK" firstAttribute="top" secondItem="cdR-YW-bgS" secondAttribute="bottom" constant="21" id="CET-lU-nQD"/>
                 <constraint firstAttribute="trailing" secondItem="MRJ-oo-RfY" secondAttribute="trailing" constant="12" id="Cat-1f-gow"/>
                 <constraint firstAttribute="bottom" secondItem="tYN-fM-uCU" secondAttribute="bottom" id="Jkw-wt-IrS"/>
+                <constraint firstAttribute="trailing" secondItem="cdR-YW-bgS" secondAttribute="trailing" constant="8" id="L2g-su-PzC"/>
                 <constraint firstItem="4kU-Hg-op7" firstAttribute="centerX" secondItem="tYN-fM-uCU" secondAttribute="centerX" id="LXh-EW-AOz"/>
                 <constraint firstItem="4kU-Hg-op7" firstAttribute="centerY" secondItem="tYN-fM-uCU" secondAttribute="centerY" id="Uss-Rf-d0z"/>
                 <constraint firstItem="MRJ-oo-RfY" firstAttribute="top" secondItem="Oap-ZS-cPK" secondAttribute="bottom" constant="8" id="X4d-75-6dB"/>
@@ -68,12 +110,14 @@
                 <constraint firstItem="JUJ-kl-Zh8" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="fj0-rG-CBN"/>
                 <constraint firstItem="MRJ-oo-RfY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="gIf-ri-Mlk"/>
                 <constraint firstItem="JUJ-kl-Zh8" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="jTL-7n-Fo2"/>
+                <constraint firstItem="cdR-YW-bgS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="oLT-NH-zIm"/>
                 <constraint firstAttribute="trailing" secondItem="Oap-ZS-cPK" secondAttribute="trailing" constant="12" id="phP-Oc-H6v"/>
                 <constraint firstItem="tYN-fM-uCU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tv8-Sd-aJp"/>
                 <constraint firstItem="4kU-Hg-op7" firstAttribute="height" secondItem="tYN-fM-uCU" secondAttribute="height" id="xIF-ps-hkh"/>
                 <constraint firstItem="JUJ-kl-Zh8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yHn-vN-cSV"/>
                 <constraint firstAttribute="bottom" secondItem="MRJ-oo-RfY" secondAttribute="bottom" constant="12" id="zRT-2v-Y1W"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
     <resources>
