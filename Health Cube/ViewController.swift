@@ -38,7 +38,7 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
 		return age.count
 	}
 	
-	func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
+    func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
 		pageControl.currentPage = carouselView.currentItemIndex
 	}
 	

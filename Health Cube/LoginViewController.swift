@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var textField: UITextField!
 	
 	var user = Type.patient
+	var userFetched = [String: Any]()
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,42 +32,41 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
 		textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 		
+		
+		passwordTextField.isUserInteractionEnabled = false
+		loginButton.isUserInteractionEnabled = false
+		scanButton.isUserInteractionEnabled = false
+		scanButton.isEnabled = false
+		
+		if user.rawValue == Type.doctor.rawValue {
+			passwordTextField.isUserInteractionEnabled = true
+			textField.placeholder = "Doctor ID"
+		} else if user.rawValue == Type.patient.rawValue {
+			textField.placeholder = "Aadhaar UID"
+			scanButton.isEnabled = true
+			scanButton.isUserInteractionEnabled = true
+		} else if user.rawValue == Type.asha.rawValue {
+			textField.placeholder = "Unique ID"
+		} else if user.rawValue == Type.GovNGO.rawValue {
+			textField.placeholder = "Asha ID"
+		}
+		
     }
 
 	func setupDoctorLogin() {
 		user = Type.doctor
-		textField.placeholder = "Doctor ID"
-		passwordTextField.isUserInteractionEnabled = false
-		loginButton.isUserInteractionEnabled = false
-		scanButton.isUserInteractionEnabled = false
 	}
 	
 	func setupPatientLogin() {
 		user = Type.patient
-		textField.placeholder = "Aadhaar UID"
-		
-		passwordTextField.isEnabled = false
-		loginButton.isEnabled = false
-		
-		passwordTextField.isUserInteractionEnabled = false
-		loginButton.isUserInteractionEnabled = false
-		scanButton.isUserInteractionEnabled = true
 	}
 	
 	func setupGovNGOLogin() {
 		user = Type.GovNGO
-		textField.placeholder = "Unique ID"
-		passwordTextField.isUserInteractionEnabled = false
-		loginButton.isUserInteractionEnabled = false
-		scanButton.isUserInteractionEnabled = false
 	}
 	
 	func setupAshaLogin() {
 		user = Type.asha
-		textField.placeholder = "Asha ID"
-		passwordTextField.isUserInteractionEnabled = false
-		loginButton.isUserInteractionEnabled = false
-		scanButton.isUserInteractionEnabled = false
 	}
 	
 	func checkPatient(uid: String) {
@@ -74,13 +74,13 @@ class LoginViewController: UIViewController {
 		Database.database().reference().child("patient").child(uid).observeSingleEvent(of: .value, with: { snapshot in
 			
 			if snapshot.exists() {
-				var user = [String: String]()
+				
 				for i in snapshot.children.allObjects as! [DataSnapshot] {
 					print(i.key, "\t", i.value as? String ?? "")
-					user.updateValue(i.value as? String ?? "", forKey: i.key)
+					self.userFetched.updateValue(i.value as? String ?? "", forKey: i.key)
 				}
 				
-				if let p = user["password"] {
+				if let _ = self.userFetched["password"] as? String {
 					self.passwordTextField.placeholder = "Password"
 				} else {
 					self.passwordTextField.placeholder = "Create password"
@@ -106,27 +106,115 @@ class LoginViewController: UIViewController {
 		
 	}
 	
+	@IBAction func loginBtn(sender: UIButton) {
+		
+		guard let _ = textField.text, let _ = passwordTextField else { return }
+		
+		if user.rawValue == Type.doctor.rawValue {
+			Database.database().reference().child("doctor").child(textField.text!).observeSingleEvent(of: .value, with: { snapshot in
+				
+				if snapshot.exists() {
+					for i in (snapshot.children.allObjects) as! [DataSnapshot] {
+						if i.key == "password" {
+							if i.value as? String ?? "" == self.passwordTextField.text! {
+								self.performSegue(withIdentifier: "rest", sender: self)
+							} else {
+								self.displayAlert(title: "Incorrect Password", message: "Try again!")
+							}
+						}
+					}
+				}
+				
+			})
+		}
+		
+		else if user.rawValue == Type.patient.rawValue {
+			if let p = userFetched["password"] as? String {
+				if passwordTextField.text == p {
+					performSegue(withIdentifier: "success", sender: self)
+				} else {
+					self.displayAlert(title: "Incorrect Password", message: "Try again!")
+				}
+			} else {
+				Database.database().reference().child("patient").child(userFetched["uid"] as? String ?? "").updateChildValues(["password": passwordTextField.text!])
+			}
+		}
+		
+		else if user.rawValue == Type.asha.rawValue {
+			Database.database().reference().child("asha").child(textField.text!).observeSingleEvent(of: .value, with: { snapshot in
+				
+				if snapshot.exists() {
+					for i in (snapshot.children.allObjects) as! [DataSnapshot] {
+						if i.key == "password" {
+							if i.value as? String ?? "" == self.passwordTextField.text! {
+								self.performSegue(withIdentifier: "rest", sender: self)
+							} else {
+								self.displayAlert(title: "Incorrect Password", message: "Try again!")
+							}
+						}
+					}
+				}
+				
+			})
+		}
+		
+		else if user.rawValue == Type.GovNGO.rawValue {
+			Database.database().reference().child("govNGO").child(textField.text!).observeSingleEvent(of: .value, with: { snapshot in
+				
+				if snapshot.exists() {
+					for i in (snapshot.children.allObjects) as! [DataSnapshot] {
+						if i.key == "password" {
+							if i.value as? String ?? "" == self.passwordTextField.text! {
+								self.performSegue(withIdentifier: "rest", sender: self)
+							} else {
+								self.displayAlert(title: "Incorrect Password", message: "Try again!")
+							}
+						}
+					}
+				}
+				
+			})
+		}
+
+		
+	}
+	
 	
 	@objc func textFieldDidChange(_ textField: UITextField) {
 		
 		if user.rawValue == Type.patient.rawValue {
 			if textField.text?.characters.count == 12 {
-				scanButton.isUserInteractionEnabled = false
+				loginButton.isUserInteractionEnabled = true
+				passwordTextField.isUserInteractionEnabled = true
 				checkPatient(uid: textField.text!)
 				//CHECK patient exist or not.
+			} else {
+				loginButton.isUserInteractionEnabled = false
+				passwordTextField.isUserInteractionEnabled = false
 			}
 		}
 		
 	}
 	
+	override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, withSender sender: Any) -> Bool {
+		return true
+	}
+	
 	@IBAction func unwindToHomeScreen(segue: UIStoryboardSegue) {
-		dismiss(animated: true, completion: nil)
+		//dismiss(animated: true, completion: nil)
 		if let x = UserDefaults.standard.value(forKey: "patient") as? [String: Any] {
 			textField.text = x["uid"] as? String ?? ""
+			passwordTextField.isUserInteractionEnabled = true
+			loginButton.isUserInteractionEnabled = true
 			checkPatient(uid: textField.text!)
 		}
 	}
 	
-	
+	func displayAlert(title : String, message : String) {
+		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+		self.present(alert, animated: true, completion: nil)
+	}
+
 	
 }

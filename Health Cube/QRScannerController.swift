@@ -18,6 +18,8 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
 	var videoPreviewLayer:AVCaptureVideoPreviewLayer?
 	var qrCodeFrameView:UIView?
 	
+	var captureDevice: AVCaptureDevice?
+	
 	let supportedCodeTypes = [AVMetadataObject.ObjectType.upce,
 	                          AVMetadataObject.ObjectType.code39,
 	                          AVMetadataObject.ObjectType.code39Mod43,
@@ -33,8 +35,13 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
 		super.viewDidLoad()
 		
 		// Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
-		let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
-		
+		captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+		if(captureDevice!.isFocusModeSupported(.continuousAutoFocus)) {
+			try! captureDevice!.lockForConfiguration()
+			captureDevice!.focusMode = .continuousAutoFocus
+			captureDevice!.unlockForConfiguration()
+		}
+		flag = 1
 		do {
 			// Get an instance of the AVCaptureDeviceInput class using the previous device object.
 			let input = try AVCaptureDeviceInput(device: captureDevice!)
@@ -83,6 +90,32 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
 		}
 	}
 	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		let screenSize = view.bounds.size
+		if let touchPoint = touches.first {
+			let x = touchPoint.location(in: view).y / screenSize.height
+			let y = 1.0 - touchPoint.location(in: view).x / screenSize.width
+			let focusPoint = CGPoint(x: x, y: y)
+			
+			if let device = captureDevice {
+				do {
+					try device.lockForConfiguration()
+					
+					device.focusPointOfInterest = focusPoint
+					//device.focusMode = .continuousAutoFocus
+					device.focusMode = .autoFocus
+					//device.focusMode = .locked
+					device.exposurePointOfInterest = focusPoint
+					device.exposureMode = AVCaptureDevice.ExposureMode.continuousAutoExposure
+					device.unlockForConfiguration()
+				}
+				catch {
+					// just ignore
+				}
+			}
+		}
+	}
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
@@ -90,7 +123,7 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
 	
 	
 	// MARK: - AVCaptureMetadataOutputObjectsDelegate Methods
-	
+	var flag = 1
 	func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
 		// Check if the metadataObjects array is not nil and it contains at least one object.
 		if metadataObjects == nil || metadataObjects.count == 0 {
@@ -107,7 +140,8 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
 			let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
 			qrCodeFrameView?.frame = barCodeObject!.bounds
 			
-			if metadataObj.stringValue != nil {
+			if metadataObj.stringValue != nil && flag == 1 {
+				flag = 0
 				let _ = MyParser(xml: metadataObj.stringValue!).parseXML()
 				messageLabel.text = "Scanned!"
 				performSegue(withIdentifier: "unwind", sender: self)

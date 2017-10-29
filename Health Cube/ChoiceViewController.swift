@@ -21,23 +21,26 @@ class ChoiceViewController: UIViewController {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard let title = (sender as? UIButton)?.currentTitle else { return	}
+		guard let tag = (sender as? UIButton)?.tag else { return	}
 		
-		if let destination = segue.destination as? LoginViewController {
-			if title.contains("Doctor") {
-				destination.setupDoctorLogin()
-			} else if title.contains("Patient") {
-				destination.setupPatientLogin()
-			} else if title.contains("NGO") {
-				destination.setupGovNGOLogin()
-			} else if title.contains("Asha") {
-				destination.setupAshaLogin()
+		if let dest = segue.destination as? LoginViewController {
+			if tag == 1 {
+				dest.setupPatientLogin()
+			} else if tag == 2 {
+				dest.setupDoctorLogin()
+			} else if tag == 3 {
+				dest.setupGovNGOLogin()
+			} else if tag == 4 {
+				dest.setupAshaLogin()
 			} else {
 				print("\n\nInvalid entry\n\n")
 			}
 		}
 	}
-
+	
+	override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, withSender sender: Any) -> Bool {
+		return false
+	}
 
 }
 
