@@ -22,6 +22,8 @@
 		073C75661FA54D57000D29E5 /* DoctorsHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C75651FA54D57000D29E5 /* DoctorsHomeController.swift */; };
 		073C75681FA54DDA000D29E5 /* DoctorVaccineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C75671FA54DDA000D29E5 /* DoctorVaccineController.swift */; };
 		073C756A1FA54FC0000D29E5 /* VaccineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C75691FA54FC0000D29E5 /* VaccineCell.swift */; };
+		073C756C1FA5D11D000D29E5 /* GovNGOController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C756B1FA5D11D000D29E5 /* GovNGOController.swift */; };
+		073C756E1FA5D4D9000D29E5 /* VaccineNamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073C756D1FA5D4D9000D29E5 /* VaccineNamesController.swift */; };
 		07DD26251FA4E5A60083048D /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD26241FA4E5A60083048D /* FloatingView.swift */; };
 		07DD26271FA4F2150083048D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD26261FA4F2150083048D /* LoginViewController.swift */; };
 		07DD263E1FA504CB0083048D /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DD263D1FA504CB0083048D /* QRScannerController.swift */; };
@@ -49,6 +51,8 @@
 		073C75651FA54D57000D29E5 /* DoctorsHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsHomeController.swift; sourceTree = "<group>"; };
 		073C75671FA54DDA000D29E5 /* DoctorVaccineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorVaccineController.swift; sourceTree = "<group>"; };
 		073C75691FA54FC0000D29E5 /* VaccineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineCell.swift; sourceTree = "<group>"; };
+		073C756B1FA5D11D000D29E5 /* GovNGOController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GovNGOController.swift; sourceTree = "<group>"; };
+		073C756D1FA5D4D9000D29E5 /* VaccineNamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineNamesController.swift; sourceTree = "<group>"; };
 		07DD26241FA4E5A60083048D /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
 		07DD26261FA4F2150083048D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		07DD263D1FA504CB0083048D /* QRScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				073C75651FA54D57000D29E5 /* DoctorsHomeController.swift */,
 				073C75671FA54DDA000D29E5 /* DoctorVaccineController.swift */,
 				073C75691FA54FC0000D29E5 /* VaccineCell.swift */,
+				073C756B1FA5D11D000D29E5 /* GovNGOController.swift */,
+				073C756D1FA5D4D9000D29E5 /* VaccineNamesController.swift */,
 			);
 			path = "Health Cube";
 			sourceTree = "<group>";
@@ -278,8 +284,10 @@
 				07DD263E1FA504CB0083048D /* QRScannerController.swift in Sources */,
 				07DD26271FA4F2150083048D /* LoginViewController.swift in Sources */,
 				073C75581FA5112C000D29E5 /* XMLParser.swift in Sources */,
+				073C756C1FA5D11D000D29E5 /* GovNGOController.swift in Sources */,
 				073C75601FA527C9000D29E5 /* iCarousel.m in Sources */,
 				073C756A1FA54FC0000D29E5 /* VaccineCell.swift in Sources */,
+				073C756E1FA5D4D9000D29E5 /* VaccineNamesController.swift in Sources */,
 				073C49B11FA4DB7F0092F9A3 /* ChoiceViewController.swift in Sources */,
 				073C75631FA528AB000D29E5 /* CustomView.swift in Sources */,
 				073C755A1FA520B4000D29E5 /* Constants.swift in Sources */,

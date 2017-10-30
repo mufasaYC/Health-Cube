@@ -47,6 +47,7 @@ var status = ["BCG":false,
               "Typhoid vaccine - 6":false]
 
 let age = ["Birth","4 Weeks","8 Weeks","12 Weeks","16 Weeks","6 Months","8-9 Months","1 Year","1 year 3 months","1 year 6 months","2 years","4 years","5 years","8 years","10 years","11 years","14 years", "17 years"]
+
 let ageMonths = [0,1,2,3,4,6,9,12,15,18,24,48,60,96,120,132,168,204]
 
 

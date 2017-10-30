@@ -14,14 +14,22 @@ class DoctorsHomeController: UIViewController {
 	@IBOutlet weak var scanButton: DesignableButton!
 	@IBOutlet weak var textField: UITextField!
 	@IBOutlet weak var goButton: DesignableButton!
+	@IBOutlet weak var statisticsButton: DesignableButton!
+	
+	var myBool = Bool()
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
 		textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-
+		
+		
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		statisticsButton.isHidden = myBool
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

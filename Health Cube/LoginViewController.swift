@@ -53,7 +53,21 @@ class LoginViewController: UIViewController {
 			textField.placeholder = "Asha ID"
 		}
 		
+//		intialise()
+		
     }
+	
+//	func intialise() {
+//		let x = 400001
+//		for (key, _ ) in status {
+//			var m = [String : Int]()
+//			for i in 0 ... 8 {
+//				m.updateValue((Int(50+arc4random()%50)), forKey: String(describing: x+i))
+//			}
+//			Database.database().reference().child("statistic").child(key).updateChildValues(m)
+//		}
+//
+//	}
 
 	func setupDoctorLogin() {
 		user = Type.doctor
@@ -149,7 +163,11 @@ class LoginViewController: UIViewController {
 					self.displayAlert(title: "Incorrect Password", message: "Try again!")
 				}
 			} else {
-				Database.database().reference().child("patient").child(userFetched["uid"] as? String ?? "").updateChildValues(["password": passwordTextField.text!])
+				if let uid = UserDefaults.standard.value(forKey: "patient") as? [String: Any] {
+					Database.database().reference().child("patient").child(uid["uid"] as? String ?? "").updateChildValues(["password": passwordTextField.text!])
+					performSegue(withIdentifier: "success", sender: self)
+				}
+				
 			}
 		}
 		
@@ -219,6 +237,8 @@ class LoginViewController: UIViewController {
 		
 	}
 	
+	
+	
 	override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, withSender sender: Any) -> Bool {
 		return true
 	}
@@ -237,6 +257,16 @@ class LoginViewController: UIViewController {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
 		self.present(alert, animated: true, completion: nil)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let dest = segue.destination as? DoctorsHomeController {
+			if user.rawValue == Type.doctor.rawValue {
+				dest.myBool = true
+			} else {
+				dest.myBool = false
+			}
+		}
 	}
 
 }
